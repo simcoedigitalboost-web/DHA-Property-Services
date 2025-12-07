@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | DHA Property Services</title>
+    <meta name="description" content="Contact DHA Property Services for pool services and snow removal in Orillia, Barrie, and surrounding areas. Call 705-345-7960.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0c1929;
+            --navy-800: #122338;
+            --navy-700: #1a3a5c;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --pool-blue: #0891b2;
+            --pool-light: #06b6d4;
+            --cta-orange: #ea580c;
+            --cta-hover: #c2410c;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--navy-800);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-900);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--pool-blue); }
+
+        nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.75rem; }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--navy-900); }
+
+        .header-cta {
+            background: var(--cta-orange);
+            color: var(--white);
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .header-cta:hover { background: var(--cta-hover); }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy-800);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--navy-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 10rem 0 4rem;
+            background: var(--navy-900);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--slate-400);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: var(--slate-50);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
+        }
+
+        /* Contact Info */
+        .contact-info h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            color: var(--slate-500);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(12, 25, 41, 0.06);
+        }
+
+        .contact-card-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--slate-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-900);
+        }
+
+        .contact-card-value a {
+            color: var(--navy-900);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-card-value a:hover {
+            color: var(--pool-blue);
+        }
+
+        .contact-card.highlight {
+            background: var(--cta-orange);
+        }
+
+        .contact-card.highlight .contact-card-label {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-card.highlight .contact-card-value,
+        .contact-card.highlight .contact-card-value a {
+            color: var(--white);
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(12, 25, 41, 0.08);
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-wrapper > p {
+            color: var(--slate-500);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--slate-200);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--navy-800);
+            transition: all 0.2s;
+            background: var(--slate-50);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pool-blue);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--cta-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-900);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-logo span { color: var(--pool-blue); }
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: var(--slate-500);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links, .header-cta { display: none; }
+            .mobile-toggle { display: flex; }
+
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">DHA <span>Property</span></a>
+                <nav>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="commercial-pools.html">Commercial Pools</a>
+                        <a href="residential-pools.html">Residential Pools</a>
+                        <a href="snow-removal.html">Snow Removal</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html" class="active">Contact</a>
+                    </div>
+                    <a href="tel:7053457960" class="header-cta">705-345-7960</a>
+                    <button class="mobile-toggle" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="commercial-pools.html">Commercial Pools</a>
+            <a href="residential-pools.html">Residential Pools</a>
+            <a href="snow-removal.html">Snow Removal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:7053457960">705-345-7960</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Ready to discuss your pool or snow removal needs? Give us a call or fill out the form below.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>The fastest way to reach us is by phone. We're happy to discuss your property needs and provide a quote.</p>
+                    
+                    <div class="contact-card highlight">
+                        <div class="contact-card-label">Phone</div>
+                        <div class="contact-card-value">
+                            <a href="tel:7053457960">705-345-7960</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-label">Service Area</div>
+                        <div class="contact-card-value">Orillia, Barrie & Surrounding Areas</div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-label">Services</div>
+                        <div class="contact-card-value" style="font-size: 1.1rem;">Pool Services & Snow Removal</div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>Request a Quote</h3>
+                    <p>Tell us about your property and we'll get back to you.</p>
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <optgroup label="Commercial Pool Services">
+                                    <option value="commercial-opening">Commercial Pool Opening</option>
+                                    <option value="commercial-closing">Commercial Pool Closing</option>
+                                    <option value="commercial-maintenance">Commercial Pool Maintenance</option>
+                                    <option value="health-compliance">Health Unit Compliance</option>
+                                </optgroup>
+                                <optgroup label="Residential Pool Services">
+                                    <option value="residential-opening">Residential Pool Opening</option>
+                                    <option value="residential-closing">Residential Pool Closing</option>
+                                    <option value="residential-maintenance">Residential Pool Maintenance</option>
+                                    <option value="spa-services">Spa/Hot Tub Services</option>
+                                </optgroup>
+                                <optgroup label="Snow Removal">
+                                    <option value="snow-residential">Snow Removal - Residential</option>
+                                    <option value="snow-commercial">Snow Removal - Commercial</option>
+                                    <option value="snow-condo">Snow Removal - Condo Property</option>
+                                </optgroup>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="property-type">Property Type</label>
+                            <select id="property-type" name="property-type">
+                                <option value="">Select property type...</option>
+                                <option value="residential">Residential Home</option>
+                                <option value="condo-corp">Condo Corporation</option>
+                                <option value="commercial">Commercial Property</option>
+                                <option value="hotel">Hotel/Resort</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your property and what you need..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">DHA <span>Property</span></div>
+                <div class="footer-links">
+                    <a href="commercial-pools.html">Commercial Pools</a>
+                    <a href="residential-pools.html">Residential Pools</a>
+                    <a href="snow-removal.html">Snow Removal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2024 DHA Property Services. Serving Orillia, Barrie & Simcoe County.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

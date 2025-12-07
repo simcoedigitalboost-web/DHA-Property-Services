@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow Removal Services | DHA Property Services</title>
+    <meta name="description" content="Reliable residential and commercial snow removal services in Orillia, Barrie, and surrounding areas. Driveway clearing, parking lots, and salting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0c1929;
+            --navy-800: #122338;
+            --navy-700: #1a3a5c;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --pool-blue: #0891b2;
+            --pool-light: #06b6d4;
+            --winter-blue: #38bdf8;
+            --cta-orange: #ea580c;
+            --cta-hover: #c2410c;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--navy-800);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-900);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--pool-blue); }
+
+        nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.75rem; }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--navy-900); }
+
+        .header-cta {
+            background: var(--cta-orange);
+            color: var(--white);
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .header-cta:hover { background: var(--cta-hover); }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy-800);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--navy-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 10rem 0 5rem;
+            background: var(--navy-900);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url('images/snow-hero.jpg') center/cover no-repeat;
+            opacity: 0.35;
+        }
+
+        .page-hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, var(--navy-900) 20%, transparent 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--slate-400);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            background: var(--cta-orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section { padding: 5rem 0; }
+        .section-alt { background: var(--slate-50); }
+        .section-dark { background: var(--navy-900); }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--navy-700);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-dark .section-label { color: var(--winter-blue); }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-dark .section-title { color: var(--white); }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 14px;
+            border-left: 4px solid var(--navy-700);
+            box-shadow: 0 4px 20px rgba(12, 25, 41, 0.06);
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--slate-500);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Before/After */
+        .before-after-section {
+            padding: 5rem 0;
+            background: var(--navy-900);
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .before-after-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .before-after-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .before-after-label {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 1.25rem;
+            background: rgba(12, 25, 41, 0.9);
+            color: var(--white);
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .before-after-item.after .before-after-label {
+            background: var(--navy-700);
+        }
+
+        .section-dark p.section-intro {
+            color: var(--slate-400);
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-text p {
+            color: var(--slate-600);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(12, 25, 41, 0.12);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            color: var(--navy-800);
+            font-weight: 500;
+        }
+
+        .feature-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--navy-700);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-900) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            background: var(--white);
+            color: var(--navy-900);
+            padding: 1.1rem 2.25rem;
+            border-radius: 12px;
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .cta-phone:hover { transform: translateY(-3px); }
+
+        /* Footer */
+        footer {
+            background: var(--navy-900);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-logo span { color: var(--pool-blue); }
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: var(--slate-500);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links, .header-cta { display: none; }
+            .mobile-toggle { display: flex; }
+
+            .page-hero-bg { width: 100%; opacity: 0.2; }
+            .content-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .before-after-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">DHA <span>Property</span></a>
+                <nav>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="commercial-pools.html">Commercial Pools</a>
+                        <a href="residential-pools.html">Residential Pools</a>
+                        <a href="snow-removal.html" class="active">Snow Removal</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <a href="tel:7053457960" class="header-cta">705-345-7960</a>
+                    <button class="mobile-toggle" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="commercial-pools.html">Commercial Pools</a>
+            <a href="residential-pools.html">Residential Pools</a>
+            <a href="snow-removal.html">Snow Removal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:7053457960">705-345-7960</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Snow Removal Services</h1>
+                <p>Reliable snow plowing and clearing for residential driveways and commercial properties throughout Orillia, Barrie, and surrounding areas. When it snows, we show up.</p>
+                <a href="tel:7053457960" class="btn-primary">Call 705-345-7960</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Snow Services for Every Property</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Residential Driveways</h4>
+                    <p>Keep your driveway clear and accessible all winter. Regular plowing service so you can get in and out without hassle.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Commercial Parking Lots</h4>
+                    <p>Full lot clearing for businesses, retail locations, and office buildings. Keep your customers and employees safe.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Condo Properties</h4>
+                    <p>Complete snow management for condo corporations including lots, walkways, and common areas.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Salting & Ice Control</h4>
+                    <p>Salt and sand application to prevent ice buildup and ensure safe walking and driving surfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <span class="section-label">Real Results</span>
+            <h2 class="section-title">Before & After</h2>
+            <p class="section-intro">When the snow piles up, we get it cleared. Driveways, parking lots, and walkways - we handle it all.</p>
+            <div class="before-after-grid">
+                <div class="before-after-item">
+                    <img src="images/snow-before-2.jpg" alt="Snow-covered driveway before clearing">
+                    <span class="before-after-label">Before</span>
+                </div>
+                <div class="before-after-item after">
+                    <img src="images/snow-after-1.jpg" alt="Cleared driveway after snow removal">
+                    <span class="before-after-label">After</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Reliability</span>
+                    <h2 class="section-title">Count On Us When It Counts</h2>
+                    <p>Simcoe County winters don't mess around. When the snow hits, you need a service that shows up - not one that leaves you stuck in your driveway or closes your business because the lot isn't cleared.</p>
+                    <p>We're local, we're reliable, and we're ready to handle whatever this winter throws at us.</p>
+                    <ul class="feature-list">
+                        <li>Prompt response after snowfall</li>
+                        <li>Consistent service all season</li>
+                        <li>Residential and commercial capacity</li>
+                        <li>Salt and sand application available</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary">Get a Quote</a>
+                </div>
+                <div class="content-image">
+                    <img src="images/snow-cleared.jpg" alt="Cleared residential driveway">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Don't Get Caught Unprepared</h2>
+            <p>Book your snow removal service before winter hits.</p>
+            <a href="tel:7053457960" class="cta-phone">705-345-7960</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">DHA <span>Property</span></div>
+                <div class="footer-links">
+                    <a href="commercial-pools.html">Commercial Pools</a>
+                    <a href="residential-pools.html">Residential Pools</a>
+                    <a href="snow-removal.html">Snow Removal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2024 DHA Property Services. Serving Orillia, Barrie & Simcoe County.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

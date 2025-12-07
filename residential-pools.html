@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Pool Services | DHA Property Services</title>
+    <meta name="description" content="Residential pool and spa services including opening, closing, water testing, and seasonal maintenance in Orillia, Barrie, and surrounding areas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0c1929;
+            --navy-800: #122338;
+            --navy-700: #1a3a5c;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --pool-blue: #0891b2;
+            --pool-light: #06b6d4;
+            --cta-orange: #ea580c;
+            --cta-hover: #c2410c;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--navy-800);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-900);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--pool-blue); }
+
+        nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.75rem; }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--navy-900); }
+
+        .header-cta {
+            background: var(--cta-orange);
+            color: var(--white);
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .header-cta:hover { background: var(--cta-hover); }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy-800);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--navy-800);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 10rem 0 5rem;
+            background: var(--navy-900);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url('images/residential-hero.jpg') center/cover no-repeat;
+            opacity: 0.55;
+        }
+
+        .page-hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, var(--navy-900) 20%, transparent 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--slate-400);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            background: var(--cta-orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section { padding: 5rem 0; }
+        .section-alt { background: var(--slate-50); }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pool-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 1rem;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-grid.reverse .content-text { order: 2; }
+        .content-grid.reverse .content-image { order: 1; }
+
+        .content-text p {
+            color: var(--slate-600);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(12, 25, 41, 0.12);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid var(--slate-200);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(12, 25, 41, 0.08);
+        }
+
+        .service-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--slate-500);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .process-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .process-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .process-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(12, 25, 41, 0.9) 0%, transparent 100%);
+            padding: 1.5rem 1rem 1rem;
+        }
+
+        .process-item h4 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Gallery */
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(12, 25, 41, 0.08);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.03); }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--pool-blue) 0%, var(--navy-700) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            background: var(--white);
+            color: var(--navy-900);
+            padding: 1.1rem 2.25rem;
+            border-radius: 12px;
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .cta-phone:hover { transform: translateY(-3px); }
+
+        /* Footer */
+        footer {
+            background: var(--navy-900);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-logo span { color: var(--pool-blue); }
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: var(--slate-500);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links, .header-cta { display: none; }
+            .mobile-toggle { display: flex; }
+
+            .page-hero-bg { width: 100%; opacity: 0.2; }
+            .content-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .content-grid.reverse .content-text { order: 1; }
+            .content-grid.reverse .content-image { order: 2; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .gallery-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">DHA <span>Property</span></a>
+                <nav>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="commercial-pools.html">Commercial Pools</a>
+                        <a href="residential-pools.html" class="active">Residential Pools</a>
+                        <a href="snow-removal.html">Snow Removal</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <a href="tel:7053457960" class="header-cta">705-345-7960</a>
+                    <button class="mobile-toggle" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="commercial-pools.html">Commercial Pools</a>
+            <a href="residential-pools.html">Residential Pools</a>
+            <a href="snow-removal.html">Snow Removal</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:7053457960">705-345-7960</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Residential Pool & Spa Services</h1>
+                <p>Enjoy your backyard pool without the hassle. We handle opening, closing, water testing, and seasonal maintenance so you can focus on relaxing.</p>
+                <a href="tel:7053457960" class="btn-primary">Call 705-345-7960</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Pool Opening</span>
+                    <h2 class="section-title">Start Your Season Right</h2>
+                    <p>Spring opening is more than just pulling off the cover. We handle the complete startup process - inspecting equipment, priming systems, balancing chemicals, and making sure everything is running properly before you take your first swim.</p>
+                    <p>Get your pool ready faster and avoid the headaches of DIY opening. We'll have you swimming in no time.</p>
+                    <a href="contact.html" class="btn-primary">Book Your Opening</a>
+                </div>
+                <div class="content-image">
+                    <img src="images/pool-empty-filling.jpg" alt="Pool opening service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <span class="section-label">Our Services</span>
+            <h2 class="section-title">Complete Residential Pool Care</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Pool Opening</h4>
+                    <p>Full spring startup including cover removal, equipment inspection, system priming, and chemical balancing.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Pool Closing</h4>
+                    <p>Proper winterization to protect your investment through harsh Canadian winters.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Water Testing</h4>
+                    <p>Regular water quality testing and chemical balancing for safe, clear water all season.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Spa Services</h4>
+                    <p>Hot tub and spa opening, closing, and maintenance services for year-round enjoyment.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Equipment Service</h4>
+                    <p>Pump, filter, and heater maintenance to keep everything running smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Seasonal Maintenance</h4>
+                    <p>Regular service visits to keep your pool crystal clear throughout the swimming season.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Pool Closing</span>
+                    <h2 class="section-title">Protect Your Investment</h2>
+                    <p>Proper winterization is critical in our climate. A poorly closed pool can mean expensive repairs come spring - cracked pipes, damaged pumps, or liner problems.</p>
+                    <p>We handle the complete closing process: lowering water levels, blowing out lines, adding winter chemicals, and securing the cover. Your pool will be ready to survive whatever winter throws at it.</p>
+                    <a href="contact.html" class="btn-primary">Book Your Closing</a>
+                </div>
+                <div class="content-image">
+                    <img src="images/pool-cover.jpg" alt="Pool closing and winterization">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for a Stress-Free Pool Season?</h2>
+            <p>Let us handle the maintenance while you enjoy your backyard oasis.</p>
+            <a href="tel:7053457960" class="cta-phone">705-345-7960</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">DHA <span>Property</span></div>
+                <div class="footer-links">
+                    <a href="commercial-pools.html">Commercial Pools</a>
+                    <a href="residential-pools.html">Residential Pools</a>
+                    <a href="snow-removal.html">Snow Removal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2024 DHA Property Services. Serving Orillia, Barrie & Simcoe County.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
